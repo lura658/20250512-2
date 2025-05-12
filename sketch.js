@@ -11,7 +11,7 @@ let uvCoords;
 function preload() {
   // Load the faceMesh model
   faceMesh = ml5.faceMesh(options);
-  uvMapImage = loadImage("clouds.png");
+  uvMapImage = loadImage("下載.png");
 }
 
 function setup() {
@@ -28,13 +28,16 @@ function setup() {
 }
 
 function draw() {
-  translate(-width / 2, -height / 2);
+  // 清除畫布，避免殘留上一幀的圖像
   background(51);
+
+  // 將畫布的原點移動到左上角
+  translate(-width / 2, -height / 2);
 
   for (let i = 0; i < faces.length; i++) {
     let face = faces[i];
 
-    // Draw all the triangles
+    // 繪製所有三角形
     noStroke();
     texture(uvMapImage);
     textureMode(NORMAL);
